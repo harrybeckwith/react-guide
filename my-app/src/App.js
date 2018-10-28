@@ -23,6 +23,16 @@ class App extends Component {
     });
   };
 
+  nameChangedHandler = event => {
+    this.setState({
+      persons: [
+        { name: "Max", age: 280 },
+        { name: event.target.value, age: 238 },
+        { name: "Naomi", age: 26 }
+      ]
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -34,6 +44,7 @@ class App extends Component {
           age={this.state.persons[0].age}
         />
         <Person
+          changed={this.nameChangedHandler}
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
         />
@@ -52,13 +63,3 @@ class App extends Component {
 }
 
 export default App;
-
-// create a component
-// display component on screen
-// use props in component
-// pass in prop details
-// display prop details
-// create state for component
-// pass into component
-// create button that changes the state
-// create method that updates the state
